@@ -28,6 +28,7 @@ export default {
         borderRadius: 10,
         borderColor: '#fff',
         borderWidth: 2
+
       },
       label: {
         show: false,

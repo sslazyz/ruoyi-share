@@ -44,14 +44,17 @@
       <el-col :span="16">
         <el-card class="box-card">
           <echarts1 />
+
         </el-card>
       </el-col>
       <el-col :span="8">
         <el-card class="box-card">
           <echarts2 />
+
         </el-card>
         <el-card class="box-card">
           <echarts3 />
+
         </el-card>
       </el-col>
     </el-row>

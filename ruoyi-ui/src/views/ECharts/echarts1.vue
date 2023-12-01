@@ -12,6 +12,7 @@ export default {
     return {
       // option配置
       option: {
+
         color: colors,
         tooltip: {
           trigger: 'none',
@@ -21,6 +22,7 @@ export default {
         },
         legend: {},
         grid: {
+
           top: 70,
           bottom: 50
         },
@@ -34,6 +36,7 @@ export default {
   series: [
     {
       data: [120, 200, 150, 80, 70, 110, 130],
+
       type: 'bar',
       showBackground: true,
       backgroundStyle: {
