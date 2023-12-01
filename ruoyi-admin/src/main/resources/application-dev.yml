@@ -152,10 +152,10 @@ token:
     # 令牌有效期（默认30分钟）
     expireTime: 30
 
+
 # MyBatis Plus配置
 mybatis-plus:
   # 不支持多包, 如有需要可在注解配置 或 提升扫包等级
-  # 例如 com.**.**.mapper
   mapperPackage: com.ruoyi.**.mapper
   # 对应的 XML 文件位置
   mapperLocations: classpath*:mapper/**/*Mapper.xml
