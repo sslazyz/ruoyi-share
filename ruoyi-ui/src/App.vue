@@ -15,7 +15,8 @@ export default {
     //加载水印
     const username = this.$store.state.user.name;
     // watermark.load({ watermark_txt: username + "知识分享管理系统" });
-    watermark.load({ watermark_txt:   "知识分享管理系统" });
+
+    watermark.load({ watermark_txt:   "知识分享系统" });
   },
   components: { ThemePicker },
     metaInfo() {
