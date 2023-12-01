@@ -7,7 +7,6 @@ import com.anji.captcha.service.CaptchaCacheService;
 
 /**
  * 自定义redis验证码缓存实现类
- *
  * @author ruoyi
  */
 public class CaptchaRedisService implements CaptchaCacheService
@@ -24,6 +23,7 @@ public class CaptchaRedisService implements CaptchaCacheService
     @Override
     public boolean exists(String key)
     {
+
         return stringRedisTemplate.hasKey(key);
     }
 

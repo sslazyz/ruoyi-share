@@ -64,10 +64,12 @@ public class SysLoginService
         captchaVO.setCaptchaVerification(code);
         ResponseModel response = captchaService.verification(captchaVO);
         if (!response.isSuccess())
+
         {
             AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, Constants.LOGIN_FAIL, MessageUtils.message("user.jcaptcha.error")));
             throw new CaptchaException();
         }
+
         // 用户验证
         Authentication authentication = null;
         try
