@@ -37,6 +37,14 @@ public class ShareServiceImpl extends ServiceImpl<ShareMapper, Share> implements
         return shareList;
     }
 
+    @Override
+    public List<Share> selectShareUser(Share share)
+    {
+        List<Share> shareList = shareMapper.selectList(buildQueryWrapper(share));
+
+        return shareList;
+    }
+
 
     private LambdaQueryWrapper<Share> buildQueryWrapper(Share query) {
         Map<String, Object> params = query.getParams();

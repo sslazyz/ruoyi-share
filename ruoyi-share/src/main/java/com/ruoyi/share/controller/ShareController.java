@@ -51,6 +51,16 @@ public class ShareController extends BaseController
         return getDataTable(list);
     }
 
+
+    @ApiOperation("查询分享列表")
+    @PreAuthorize("@ss.hasPermi('share:sha:list')")
+    @GetMapping("/list")
+    public TableDataInfo shareUser(Share share)
+    {
+        startPage();
+        List<Share> list = shareService.selectShareList(share);
+        return getDataTable(list);
+    }
     /**
      * 导出分享列表
      */

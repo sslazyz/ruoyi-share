@@ -24,7 +24,7 @@
     </el-form>
 
     <el-row :gutter="10" class="mb8">
-      <el-col :span="1.5">
+      <!-- <el-col :span="1.5">
         <el-button
           type="primary"
           plain
@@ -33,7 +33,7 @@
           @click="handleAdd"
           v-hasPermi="['share:midsh:add']"
         >新增</el-button>
-      </el-col>
+      </el-col> -->
       <el-col :span="1.5">
         <el-button
           type="success"
@@ -72,8 +72,8 @@
     <el-table v-loading="loading" :data="midshList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
       <el-table-column label="id" align="center" prop="id" />
-      <el-table-column label="share.id" align="center" prop="shareId" />
-      <el-table-column label="user.id" align="center" prop="userId" />
+      <el-table-column label="分享者" align="center" prop="shareId" />
+      <el-table-column label="用户" align="center" prop="userId" />
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button

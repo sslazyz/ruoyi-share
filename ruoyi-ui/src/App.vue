@@ -16,7 +16,7 @@ export default {
     const username = this.$store.state.user.name;
     // watermark.load({ watermark_txt: username + "知识分享管理系统" });
 
-    watermark.load({ watermark_txt:   "知识分享系统" });
+    watermark.load({ watermark_txt:   "知识分享管理系统" });
   },
   components: { ThemePicker },
     metaInfo() {

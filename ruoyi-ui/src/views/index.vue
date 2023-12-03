@@ -6,8 +6,8 @@
         <el-card class="box-card">
           <h3>知识分享文章数</h3>
           <div>
-            <i class="el-icon-s-shop" style="color: purple"></i>
-            <span>20</span>
+            <i class="el-icon-s-shop" style="color: rgb(0, 128, 62)"></i>
+            <span>27</span>
           </div>
         </el-card>
       </el-col>
@@ -15,7 +15,7 @@
         <el-card class="box-card">
           <h3>累计用户数</h3>
           <div>
-            <i class="el-icon-user-solid" style="color: green"></i>
+            <i class="el-icon-user-solid" style="color: rgb(128, 126, 0)"></i>
             <span>6</span>
           </div>
         </el-card>
@@ -24,8 +24,8 @@
         <el-card class="box-card">
           <h3>兑换次数</h3>
           <div>
-            <i class="el-icon-s-flag" style="color: red"></i>
-            <span>8</span>
+            <i class="el-icon-s-flag" style="color: rgb(0, 64, 255)"></i>
+            <span>11</span>
           </div>
         </el-card>
       </el-col>
@@ -33,8 +33,8 @@
         <el-card class="box-card">
           <h3>入驻作者数</h3>
           <div>
-            <i class="el-icon-star-on" style="color: blue"></i>
-            <span>26</span>
+            <i class="el-icon-star-on" style="color: rgb(255, 0, 247)"></i>
+            <span>7</span>
           </div>
         </el-card>
       </el-col>

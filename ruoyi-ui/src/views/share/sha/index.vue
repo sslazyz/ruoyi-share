@@ -120,9 +120,13 @@
     <el-table v-loading="loading" :data="shaList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
       <el-table-column label="id" align="center" prop="id" />
-      <el-table-column label="发布人id" align="center" prop="userId" />
+      <el-table-column label="发布者" align="center" prop="userId" />
       <el-table-column label="标题" align="center" prop="title" />
-      <el-table-column label="是否原创" align="center" prop="isOriginal" />
+      <el-table-column label="是否原创" align="center" prop="isOriginal" >
+        <template slot-scope="scope">
+          <dict-tag :options="dict.type.sys_original" :value="scope.row.isOriginal"/>
+        </template>
+      </el-table-column>
 
       <el-table-column label="作者" align="center" prop="author" />
       <el-table-column label="封面" align="center" prop="cover" >
@@ -131,16 +135,20 @@
         </template>
       </el-table-column>
 
-      <el-table-column label="概要信息" align="center" prop="summary" />
+      <el-table-column label="概要信息" align="center" prop="summary" show-overflow-tooltip />
       <el-table-column label="价格" align="center" prop="price" />
-      <el-table-column label="下载地址" align="center" prop="downloadUrl" />
+      <el-table-column label="下载地址" align="center" prop="downloadUrl" show-overflow-tooltip />
       <el-table-column label="下载数 " align="center" prop="buyCount" />
-      <el-table-column label="是否显示" align="center" prop="showFlag" />
-      <!-- <template slot-scope="scope">
+      <el-table-column label="是否显示" align="center" prop="showFlag" >
+        <template slot-scope="scope">
           <dict-tag :options="dict.type.sys_normal_disable" :value="scope.row.showFlag"/>
-        </template> -->
-
-      <el-table-column label="审核状态" align="center" prop="auditStatus" />
+        </template>
+      </el-table-column>
+      <el-table-column label="审核状态" align="center" prop="auditStatus" >
+        <template slot-scope="scope">
+          <dict-tag :options="dict.type.sys_audit" :value="scope.row.auditStatus"/>
+        </template>
+      </el-table-column>
       <el-table-column label="审核不通过原因" align="center" prop="reason" />
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
@@ -179,10 +187,10 @@
         <el-form-item label="标题" prop="title">
           <el-input v-model="form.title" placeholder="请输入标题" />
         </el-form-item>
-        <el-form-item label="${comment}" prop="remark">
+        <!-- <el-form-item label="${comment}" prop="remark">
           <el-input v-model="form.remark" placeholder="请输入${comment}" />
-        </el-form-item>
-        <el-form-item label="是否原创 0:否 1:是" prop="isOriginal">
+        </el-form-item> -->
+        <el-form-item label="是否原创" prop="isOriginal">
           <el-input v-model="form.isOriginal" placeholder="请输入是否原创 0:否 1:是" />
         </el-form-item>
         <el-form-item label="作者" prop="author">
@@ -198,12 +206,12 @@
           <el-input v-model="form.price" placeholder="请输入价格" />
         </el-form-item>
         <el-form-item label="下载地址" prop="downloadUrl">
-          <el-input v-model="form.downloadUrl" placeholder="请输入下载地址" />
+          <el-input v-model="form.downloadUrl" placeholder="请输入下载地址"  />
         </el-form-item>
         <el-form-item label="下载数 " prop="buyCount">
           <el-input v-model="form.buyCount" placeholder="请输入下载数 " />
         </el-form-item>
-        <el-form-item label="是否显示 0:否 1:是" prop="showFlag">
+        <el-form-item label="是否显示" prop="showFlag">
           <el-input v-model="form.showFlag" placeholder="请输入是否显示 0:否 1:是" />
         </el-form-item>
         <el-form-item label="审核不通过原因" prop="reason">
@@ -223,7 +231,7 @@ import { listSha, getSha, delSha, addSha, updateSha } from "@/api/share/sha";
 
 export default {
   name: "Sha",
-  dicts: ['sys_show_hide', 'sys_normal_disable'],
+  dicts: ['sys_show_hide', 'sys_normal_disable','sys_audit','sys_original'],
   data() {
     return {
       // 遮罩层

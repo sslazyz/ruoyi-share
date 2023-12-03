@@ -87,9 +87,8 @@
 
     <el-table v-loading="loading" :data="userList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
-      <el-table-column label="Id" align="center" prop="id" />
+      <el-table-column label="id" align="center" prop="id" />
       <el-table-column label="手机号" align="center" prop="phone" />
-      <el-table-column label="密码" align="center" prop="password" />
       <el-table-column label="昵称" align="center" prop="nickname" />
       <el-table-column label="角色" align="center" prop="roles" />
       <el-table-column label="头像" align="center" prop="avatarUrl" >
@@ -142,7 +141,8 @@
           <el-input v-model="form.roles" placeholder="请输入角色" />
         </el-form-item>
         <el-form-item label="头像地址" prop="avatarUrl">
-          <el-input v-model="form.avatarUrl" placeholder="请输入头像地址" />
+          <!-- <el-input v-model="form.avatarUrl" placeholder="请输入头像地址" /> -->
+          <ImageUpload v-model="form.avatarUrl"/>
         </el-form-item>
         <el-form-item label="积分" prop="bonus">
           <el-input v-model="form.bonus" placeholder="请输入积分" />
