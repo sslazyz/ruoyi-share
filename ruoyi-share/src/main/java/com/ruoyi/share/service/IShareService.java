@@ -20,6 +20,4 @@ public interface IShareService extends IService<Share> {
      */
     public List<Share> selectShareList(Share share);
 
-    public List<Share> selectShareUser(Share share);
-
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
     <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">
-      <el-form-item label="手机号" prop="phone">
+      <!-- <el-form-item label="手机号" prop="phone">
         <el-input
           v-model="queryParams.phone"
           placeholder="请输入手机号"
@@ -24,19 +24,19 @@
           clearable
           @keyup.enter.native="handleQuery"
         />
-      </el-form-item>
-      <el-form-item label="积分" prop="bonus">
+      </el-form-item> -->
+      <!-- <el-form-item label="积分" prop="bonus">
         <el-input
           v-model="queryParams.bonus"
           placeholder="请输入积分"
           clearable
           @keyup.enter.native="handleQuery"
         />
-      </el-form-item>
-      <el-form-item>
+      </el-form-item> -->
+      <!-- <el-form-item>
         <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
         <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
-      </el-form-item>
+      </el-form-item> -->
     </el-form>
 
     <el-row :gutter="10" class="mb8">

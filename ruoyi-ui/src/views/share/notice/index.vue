@@ -1,13 +1,15 @@
 <template>
   <div class="app-container">
     <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">
-      <el-form-item label="是否显示" prop="showFlag">
-        <el-input
-          v-model="queryParams.showFlag"
-          placeholder="请输入是否显示 "
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
+      <el-form-item label="是否停用" prop="showFlag">
+        <el-select v-model="queryParams.showFlag" filterable placeholder="请选择">
+          <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value">
+          </el-option>
+        </el-select>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
@@ -124,6 +126,14 @@ export default {
   dicts: ['sys_show_hide', 'sys_normal_disable'],
   data() {
     return {
+      options: [{
+          value: 1,
+          label: '停用'
+        }, {
+          value: 0,
+          label: '正常'
+        }],
+        value: '',
       // 遮罩层
       loading: true,
       // 选中数组

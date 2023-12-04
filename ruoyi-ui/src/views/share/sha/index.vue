@@ -1,14 +1,14 @@
 <template>
   <div class="app-container">
     <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">
-      <el-form-item label="发布人id" prop="userId">
+      <!-- <el-form-item label="发布人id" prop="userId">
         <el-input
           v-model="queryParams.userId"
           placeholder="请输入发布人id"
           clearable
           @keyup.enter.native="handleQuery"
         />
-      </el-form-item>
+      </el-form-item> -->
       <el-form-item label="标题" prop="title">
         <el-input
           v-model="queryParams.title"
@@ -18,12 +18,14 @@
         />
       </el-form-item>
       <el-form-item label="是否原创" prop="isOriginal">
-        <el-input
-          v-model="queryParams.isOriginal"
-          placeholder="请输入是否原创"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
+        <el-select v-model="queryParams.isOriginal" filterable placeholder="请选择">
+          <el-option
+            v-for="item in optioning"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value">
+          </el-option>
+      </el-select>
       </el-form-item>
       <el-form-item label="作者" prop="author">
         <el-input
@@ -33,38 +35,41 @@
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="封面" prop="cover">
+      <!-- <el-form-item label="封面" prop="cover">
         <el-input
           v-model="queryParams.cover"
           placeholder="请输入封面"
           clearable
           @keyup.enter.native="handleQuery"
         />
-      </el-form-item>
-      <el-form-item label="概要信息" prop="summary">
+      </el-form-item> -->
+      <!-- <el-form-item label="概要信息" prop="summary">
         <el-input
           v-model="queryParams.summary"
           placeholder="请输入概要信息"
           clearable
           @keyup.enter.native="handleQuery"
         />
-      </el-form-item>
-      <el-form-item label="下载数 " prop="buyCount">
+      </el-form-item> -->
+      <!-- <el-form-item label="下载数 " prop="buyCount">
         <el-input
           v-model="queryParams.buyCount"
           placeholder="请输入下载数 "
           clearable
           @keyup.enter.native="handleQuery"
         />
-      </el-form-item>
+      </el-form-item> -->
       <el-form-item label="是否显示" prop="showFlag">
-        <el-input
-          v-model="queryParams.showFlag"
-          placeholder="请输入是否显示"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
+        <el-select v-model="queryParams.showFlag" filterable placeholder="请选择">
+          <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value">
+          </el-option>
+      </el-select>
       </el-form-item>
+      
       <el-form-item>
         <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
         <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
@@ -197,7 +202,8 @@
           <el-input v-model="form.author" placeholder="请输入作者" />
         </el-form-item>
         <el-form-item label="封面" prop="cover">
-          <el-input v-model="form.cover" placeholder="请输入封面" />
+          <!-- <el-input v-model="form.cover" placeholder="请输入封面" /> -->
+          <ImageUpload v-model="form.avatarUrl"/>
         </el-form-item>
         <el-form-item label="概要信息" prop="summary" :formatter="formatSummary">
           <el-input v-model="form.summary" placeholder="请输入概要信息" />
@@ -234,6 +240,21 @@ export default {
   dicts: ['sys_show_hide', 'sys_normal_disable','sys_audit','sys_original'],
   data() {
     return {
+      options: [{
+          value: 0,
+          label: '正常'
+        }, {
+          value: 1,
+          label: '停用'
+        }],
+      value: '',
+      optioning: [{
+          value: 1,
+          label: '是'
+        }, {
+          value: 0,
+          label: '否'
+        }],
       // 遮罩层
       loading: true,
       // 选中数组

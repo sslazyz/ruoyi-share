@@ -1,21 +1,16 @@
 <template>
   <div class="app-container">
     <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">
-      <el-form-item label="用户id" prop="userId">
-        <el-input
-          v-model="queryParams.userId"
-          placeholder="请输入用户id"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
+      
       <el-form-item label="积分事件" prop="event">
-        <el-input
-          v-model="queryParams.event"
-          placeholder="请输入积分事件"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
+        <el-select v-model="queryParams.event" filterable placeholder="请选择">
+          <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value">
+          </el-option>
+        </el-select>
       </el-form-item>
       <el-form-item label="描述" prop="description">
         <el-input
@@ -143,6 +138,14 @@ export default {
   name: "Log",
   data() {
     return {
+      options: [{
+          value: 'BUY',
+          label: 'BUY'
+        }, {
+          value: 'CONTRIBUTE',
+          label: 'CONTRIBUTE'
+        }],
+        value: '',
       // 遮罩层
       loading: true,
       // 选中数组
